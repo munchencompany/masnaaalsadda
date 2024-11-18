@@ -1,0 +1,168 @@
+<div id="print-content" style="background-image:url(images/welcome-hero/MAN_TGS.jpg);"><form>
+    <table width="100%">
+    <tbody>
+    <tr style="background-color:aqua";>
+    <td><label>First Name</label></td>
+    <td><input name="First Name" maxlength="255" type="text" /></td>
+    </tr>
+    <tr>
+    <td><label>Last Name</label></td>
+    <td><input name="Last Name" maxlength="255" type="text" /></td>
+    </tr>
+    <tr>
+    <td><label>Street Address</label></td>
+    <td><input name="Street Address" maxlength="255" type="text" /></td>
+    </tr>
+    <tr>
+    <td><label>City</label></td>
+    <td><input name="City" maxlength="255" type="text" /></td>
+    </tr>
+    <tr>
+    <td><label>State</label></td>
+    <td><input name="State" maxlength="255" type="text" /></td>
+    </tr>
+    <tr>
+    <td><label>Zip Code</label></td>
+    <td><input name="Zip Code" maxlength="255" type="text" /></td>
+    </tr>
+    <tr>
+    <td><label>Phone Number</label></td>
+    <td><input name="Phone Number" maxlength="255" type="text" /></td>
+    </tr>
+    <tr>
+    <td><label>E-Mail Address</label></td>
+    <td><input name="Email Address" maxlength="255" type="text" /></td>
+    </tr>
+    <tr>
+    <td colspan="2"><label>Description of item(s) to be serviced</label><br /><textarea name="Items" type="text"></textarea></td>
+    </tr>
+    <tr>
+    <td colspan="2"><label>Description of Problem(s)</label><br /><textarea name="Problems" type="text"></textarea></td>
+    </tr>
+    <tr>
+    <td colspan="2"><label>Any Special Notes</label><br /><textarea name="Notes type=" text=""></textarea></td>
+    </tr>
+    </tbody>
+    </table>
+    <input type="button" onclick="printDiv('print-table')" value="print a div!" />
+</form></div>
+    
+    </div>
+    
+    <script>
+    function printDiv(divName) {
+     //alert('s');
+     var printContents = '<div id="print-content"><form><table width="30%"><tbody>';
+      var inputs, index;
+    
+    inputs = document.getElementsByTagName('input');
+    for (index = 0; index < inputs.length - 1; ++index) {
+    
+       var fieldName = inputs[index].name;
+       var fieldValue = inputs[index].value;
+    
+      printContents +='<tr><td><label>'+fieldName+'</label></td>';
+      printContents +='<td>'+fieldValue+'</td></tr>';
+    }
+    
+    var z = 8; // if you had more labels remeber to change this value 
+    inputs = document.getElementsByTagName('textarea');
+    for (index = 0; index < inputs.length; ++index) {
+    
+       //var fieldName = inputs[index].name;
+        var fieldName = document.getElementsByTagName('label')[z].textContent;
+       var fieldValue = inputs[index].value;
+    
+      printContents +='<tr><td colspan="2"><label>'+fieldName+'</label><br>'+fieldValue+'</td></tr>';
+    ++z;
+    }
+    
+       printContents +='</tbody></table>';
+    
+     w=window.open();
+     w.document.write(printContents);
+     w.print();
+     w.close();
+    } 
+     function printDiv(divName) {
+        var inputContents;
+        alert('Click Here To Print This Form');
+        inputContents = "";
+        var input = document.getElementsByTagName("input");
+        for (i = 0; i < (input.length -1); i++) {
+        // notice that it's input.length -1, because we don't want the 
+        // submit button's value to display. 
+        
+            inputContents += input[i].name + ": " + input[i].value + "\n";
+        }
+        var input = document.getElementsByTagName("textarea");
+         for (i = 0; i < (input.length -1); i++) {
+            inputContents += input[i].name + " " + input[i].value + "\n";
+        }
+        alert(inputContents);
+        var printContents = document.getElementById(divName).innerHTML;
+        }
+        function printDiv(divName) {
+ var inputContents = "";
+ alert('Click Here To Print This Form');
+
+// loop through all input elements and get their values, place
+// them in inputcontents, with name and value, one on each line.
+
+var input = document.getElementsByTagName("input");
+for (i = 0; i < (input.length -1); i++) {
+    inputContents += input[i].name + ": " + input[i].value + "\n";
+}
+
+// loop through all textarea elements and get their values, place
+// them in inputcontents, with name and value, one on each line.
+
+var input = document.getElementsByTagName("textarea");
+ for (i = 0; i < (input.length -1); i++) {
+    inputContents += input[i].name + ": " + input[i].value + "\n";
+}
+
+var printContents = inputContents;
+w=window.open();
+w.document.write(printContents);
+w.print();
+w.close();
+}
+var fr = frames[0], iframeWin = fr.contentWindow || fr.contentDocument.defalutView;
+iframeWin.print();
+    </script>
+    <style> input[type=text], select, textarea {
+        width: 100%; /* Full width */
+        padding: 12px; /* Some padding */ 
+        border: 1px solid #ccc; /* Gray border */
+        border-radius: 4px; /* Rounded borders */
+        box-sizing: border-box; /* Make sure that padding and width stays in place */
+        margin-top: 6px; /* Add a top margin */
+        margin-bottom: 16px; /* Bottom margin */
+        resize: vertical /* Allow the user to vertically resize the textarea (not horizontally) */
+      }
+      
+      /* Style the submit button with a specific background color etc */
+      input[type=submit] {
+        background-color: #04AA6D;
+        color: white;
+        padding: 12px 20px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+      }
+      
+      /* When moving the mouse over the submit button, add a darker green color */
+      input[type=submit]:hover {
+        background-color: #45a049;
+      }
+      
+      /* Add a background color and some padding around the form */
+      .container {
+        border-radius: 5px;
+        background-color: #f2f2f2;
+        padding: 20px;
+      }
+      
+   </style>
+  
